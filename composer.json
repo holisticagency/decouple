@@ -1,0 +1,17 @@
+{
+    "name": "holistic-agency/frozen",
+    "description": "clock, system and random interfaces",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "HolisticAgency\\Frozen\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "JamesRezo",
+            "email": "james@rezo.net"
+        }
+    ]
+}
