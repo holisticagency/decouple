@@ -24,5 +24,8 @@
     },
     "require": {
         "phpstan/phpstan": "^1.4"
+    },
+    "provide": {
+        "psr/clock-implementation": "1.0"
     }
 }
