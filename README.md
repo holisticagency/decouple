@@ -56,7 +56,7 @@ class MyClassTest
         $actual = $myTestClass->myMethod($frozen);
 
         // Then
-        // assert what you need knowing 
+        // assert what you need knowing
         // $now is equal to '2022-02-05 16:32:29 CET' inside myMethod()
     }
 }
@@ -75,7 +75,7 @@ $unknon = $random->random(); // an integer between 0 and PHP_INT_MAX included
 $random = new Randomizer(1, 6);
 $dieType = 'D' . strval($random->max); // D6
 $dieRoll = $random->random() ; // an integer between 1 and 6 included
-if ($diRoll == $this->min) {
+if ($dieRoll == $this->min) {
     echo 'You loose.'; // if 1 is rolled
 }
 
@@ -99,7 +99,7 @@ depending on real conditions of the PHP platform.
 The FrozenSystem act as a fake for tests purpose.
 
 ```php
-// srrc/MyNetwork.php
+// src/MyNetwork.php
 use HolisticAgency\Frozen\SystemInterface;
 
 class MyNetwork
