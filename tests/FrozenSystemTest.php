@@ -26,6 +26,7 @@ class FrozenSystemTest extends TestCase
         $this->system = new FrozenSystem(
             'apache2handler',
             '8.1.3',
+            ['zip', 'curl'],
             'localhost',
             '127.0.0.1',
             'frozen.tld',
@@ -57,6 +58,19 @@ class FrozenSystemTest extends TestCase
 
         // Then
         $this->assertEquals('8.1.3', $actual);
+    }
+
+    public function testExtensions()
+    {
+        // Given
+        // $this->system
+
+        // When
+        $actual = $this->system->extensions();
+
+        // Then
+        $this->assertEquals(['zip', 'curl'], $actual);
+        $this->assertNotContains('xml', $actual);
     }
 
     public function testHostname()

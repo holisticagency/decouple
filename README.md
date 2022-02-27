@@ -92,6 +92,7 @@ depending on real conditions of the PHP platform.
 | ---------------- | -------------------------------------- |
 | sapi()           | PHP_SAPI                               |
 | version()        | PHP_VERSION                            |
+| extensions()     | get_loaded_extensions()                |
 | hostname()       | gethostname() or empty string (`''`)   |
 | ipV4()           | gethostbyname()                        |
 | httpHost()       | $_SERVER['HTTP_HOST'] or empty string  |
@@ -123,6 +124,7 @@ class MyNetworkTest
         $frozen = new FrozenSystem(
             'fpm-fcgi',
             '7.4.28',
+            ['zip', 'curl'],
             'production.local',
             '192.168.1.10',
             'app.my.org',

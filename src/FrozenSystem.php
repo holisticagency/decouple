@@ -19,6 +19,7 @@ class FrozenSystem implements SystemInterface
     public function __construct(
         protected string $sapi,
         protected string $version,
+        protected array $extensions,
         protected string $hostname,
         protected string $ipV4,
         protected string $httpHost,
@@ -34,6 +35,11 @@ class FrozenSystem implements SystemInterface
     public function version(): string
     {
         return $this->version;
+    }
+
+    public function extensions(): array
+    {
+        return $this->extensions;
     }
 
     public function hostname(): string

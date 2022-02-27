@@ -19,6 +19,8 @@ interface SystemInterface
 
     public function version(): string;
 
+    public function extensions(): array;
+
     public function hostname(): string;
 
     public function ipV4(): string;

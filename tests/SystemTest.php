@@ -43,6 +43,19 @@ class SystemTest extends TestCase
         $this->assertEquals(PHP_VERSION, $actual);
     }
 
+    public function testExtensions()
+    {
+        // Given
+        $system = new System();
+
+        // When
+        $actual = $system->extensions();
+
+        // Then
+        $this->assertEquals(get_loaded_extensions(), $actual);
+        $this->assertNotContains(md5(mt_rand()), $actual);
+    }
+
     public function testHostname()
     {
         // Given

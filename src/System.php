@@ -25,6 +25,11 @@ class System implements SystemInterface
         return PHP_VERSION;
     }
 
+    public function extensions(): array
+    {
+        return get_loaded_extensions();
+    }
+
     public function hostname(): string
     {
         return gethostname() ?: '';
