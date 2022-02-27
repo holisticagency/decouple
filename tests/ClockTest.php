@@ -20,7 +20,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ClockTest extends TestCase
 {
-    public function testRandom()
+    public function testNow()
     {
         // Given
         $clock = new Clock();

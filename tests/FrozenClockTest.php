@@ -20,7 +20,7 @@ use PHPUnit\Framework\TestCase;
  */
 class FrozenClockTest extends TestCase
 {
-    public function testRandom()
+    public function testNow()
     {
         // Given
         $clock = new FrozenClock(new DateTimeImmutable('1971-11-05 19:40:12 CET'));
