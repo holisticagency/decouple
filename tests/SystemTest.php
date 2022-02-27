@@ -31,6 +31,18 @@ class SystemTest extends TestCase
         $this->assertEquals(PHP_SAPI, $actual);
     }
 
+    public function testVersion()
+    {
+        // Given
+        $system = new System();
+
+        // When
+        $actual = $system->version();
+
+        // Then
+        $this->assertEquals(PHP_VERSION, $actual);
+    }
+
     public function testHostname()
     {
         // Given
@@ -80,6 +92,7 @@ class SystemTest extends TestCase
             ],
         ];
     }
+
     /**
      * @dataProvider dataResolve
      */

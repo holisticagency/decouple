@@ -20,6 +20,11 @@ class System implements SystemInterface
         return PHP_SAPI;
     }
 
+    public function version(): string
+    {
+        return PHP_VERSION;
+    }
+
     public function hostname(): string
     {
         return gethostname() ?: '';

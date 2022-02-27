@@ -64,9 +64,9 @@ class MyClassTest
 
 ### Randomizer
 
-The Randomizer `random()` method returns an integer of a `mt_rand()` call.
+The Randomizer `random()` method returns an integer from a `mt_rand()` call.
 
-The FrozenRandomizer `random()` method returns the passed to the constructor.
+The FrozenRandomizer `random()` method returns the value passed to the constructor.
 
 ```php
 $random = new Randomizer();
@@ -91,6 +91,7 @@ depending on real conditions of the PHP platform.
 | method           | native PHP call                        |
 | ---------------- | -------------------------------------- |
 | sapi()           | PHP_SAPI                               |
+| version()        | PHP_VERSION                            |
 | hostname()       | gethostname() or empty string (`''`)   |
 | ipV4()           | gethostbyname()                        |
 | httpHost()       | $_SERVER['HTTP_HOST'] or empty string  |
@@ -121,6 +122,7 @@ class MyNetworkTest
         $myTestClass = new MyNetwork();
         $frozen = new FrozenSystem(
             'fpm-fcgi',
+            '7.4.28',
             'production.local',
             '192.168.1.10',
             'app.my.org',

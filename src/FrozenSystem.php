@@ -18,6 +18,7 @@ class FrozenSystem implements SystemInterface
     /** @param array<string, string> $remotes */
     public function __construct(
         protected string $sapi,
+        protected string $version,
         protected string $hostname,
         protected string $ipV4,
         protected string $httpHost,
@@ -28,6 +29,11 @@ class FrozenSystem implements SystemInterface
     public function sapi(): string
     {
         return $this->sapi;
+    }
+
+    public function version(): string
+    {
+        return $this->version;
     }
 
     public function hostname(): string

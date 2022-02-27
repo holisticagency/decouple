@@ -25,6 +25,7 @@ class FrozenSystemTest extends TestCase
     {
         $this->system = new FrozenSystem(
             'apache2handler',
+            '8.1.3',
             'localhost',
             '127.0.0.1',
             'frozen.tld',
@@ -44,6 +45,18 @@ class FrozenSystemTest extends TestCase
 
         // Then
         $this->assertEquals('apache2handler', $actual);
+    }
+
+    public function testVersion()
+    {
+        // Given
+        // $this->system
+
+        // When
+        $actual = $this->system->version();
+
+        // Then
+        $this->assertEquals('8.1.3', $actual);
     }
 
     public function testHostname()

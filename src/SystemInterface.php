@@ -17,6 +17,8 @@ interface SystemInterface
 {
     public function sapi(): string;
 
+    public function version(): string;
+
     public function hostname(): string;
 
     public function ipV4(): string;
