@@ -27,6 +27,7 @@ class FrozenSystemTest extends TestCase
             'apache2handler',
             '8.1.3',
             ['zip', 'curl'],
+            '128M',
             'localhost',
             '127.0.0.1',
             'frozen.tld',
@@ -72,6 +73,18 @@ class FrozenSystemTest extends TestCase
         // Then
         $this->assertEquals(['zip', 'curl'], $actual);
         $this->assertNotContains('xml', $actual);
+    }
+
+    public function testMemory()
+    {
+        // Given
+        // $this->system
+
+        // When
+        $actual = $this->system->memory();
+
+        // Then
+        $this->assertEquals('128M', $actual);
     }
 
     public function testHostname()

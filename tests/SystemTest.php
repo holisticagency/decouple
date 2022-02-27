@@ -56,6 +56,18 @@ class SystemTest extends TestCase
         $this->assertNotContains(md5(mt_rand()), $actual);
     }
 
+    public function testMemory()
+    {
+        // Given
+        $system = new System();
+
+        // When
+        $actual = $system->memory();
+
+        // Then
+        $this->assertEquals(ini_get('memory_limit') ?: '', $actual);
+    }
+
     public function testHostname()
     {
         // Given

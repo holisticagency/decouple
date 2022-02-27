@@ -23,6 +23,7 @@ class FrozenSystem implements SystemInterface
         protected string $sapi,
         protected string $version,
         protected array $extensions,
+        protected string $memory,
         protected string $hostname,
         protected string $ipV4,
         protected string $httpHost,
@@ -44,6 +45,11 @@ class FrozenSystem implements SystemInterface
     public function extensions(): array
     {
         return $this->extensions;
+    }
+
+    public function memory(): string
+    {
+        return $this->memory;
     }
 
     public function hostname(): string

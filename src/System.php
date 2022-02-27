@@ -30,6 +30,11 @@ class System implements SystemInterface
         return get_loaded_extensions();
     }
 
+    public function memory(): string
+    {
+        return ini_get('memory_limit') ?: '';
+    }
+
     public function hostname(): string
     {
         return gethostname() ?: '';

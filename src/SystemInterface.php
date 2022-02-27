@@ -24,6 +24,8 @@ interface SystemInterface
      */
     public function extensions(): array;
 
+    public function memory(): string;
+
     public function hostname(): string;
 
     public function ipV4(): string;

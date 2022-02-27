@@ -85,19 +85,20 @@ $cheater = $guesser->random(); // Always 10
 
 ### System
 
-The System methods return a string that may be empty
-depending on real conditions of the PHP platform.
+The System methods return strings (or a float in the special case of freeSpace)
+that may be empty depending on real conditions of the PHP platform.
 
-| method                | native PHP call                        |
-| --------------------- | -------------------------------------- |
-| sapi()                | PHP_SAPI                               |
-| version()             | PHP_VERSION                            |
-| extensions()          | get_loaded_extensions()                |
-| hostname()            | gethostname() or empty string (`''`)   |
-| ipV4()                | gethostbyname()                        |
-| httpHost()            | $_SERVER['HTTP_HOST'] or empty string  |
-| resolve($remote)      | gethostbyname($remote) or empty string |
-| freeSpace($directory) | disk_free_space($directory)            |
+| method                | native PHP call                                |
+| --------------------- | ---------------------------------------------- |
+| sapi()                | PHP_SAPI                                       |
+| version()             | PHP_VERSION                                    |
+| extensions()          | get_loaded_extensions()                        |
+| memory()              | ini_get('memory_limit') or empty string (`''`) |
+| hostname()            | gethostname() or empty string                  |
+| ipV4()                | gethostbyname()                                |
+| httpHost()            | $_SERVER['HTTP_HOST'] or empty string          |
+| resolve($remote)      | gethostbyname($remote) or empty string         |
+| freeSpace($directory) | disk_free_space($directory)                    |
 
 The FrozenSystem act as a fake for tests purpose.
 
