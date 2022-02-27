@@ -15,7 +15,10 @@ namespace HolisticAgency\Frozen;
 
 class FrozenSystem implements SystemInterface
 {
-    /** @param array<string, string> $remotes */
+    /**
+     * @param string[] $extensions
+     * @param array<string, string> $remotes
+     */
     public function __construct(
         protected string $sapi,
         protected string $version,

@@ -19,6 +19,9 @@ interface SystemInterface
 
     public function version(): string;
 
+    /**
+     * @return string[]
+     */
     public function extensions(): array;
 
     public function hostname(): string;
