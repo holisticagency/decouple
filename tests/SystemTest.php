@@ -120,4 +120,16 @@ class SystemTest extends TestCase
         // Then
         $this->assertEquals($expected, $actual);
     }
+
+    public function testFreeSpace()
+    {
+        // Given
+        $system = new System();
+
+        // When
+        $actual = $system->freeSpace(__DIR__);
+
+        // Then
+        $this->assertEquals(disk_free_space(__DIR__), $actual);
+    }
 }

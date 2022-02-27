@@ -88,15 +88,16 @@ $cheater = $guesser->random(); // Always 10
 The System methods return a string that may be empty
 depending on real conditions of the PHP platform.
 
-| method           | native PHP call                        |
-| ---------------- | -------------------------------------- |
-| sapi()           | PHP_SAPI                               |
-| version()        | PHP_VERSION                            |
-| extensions()     | get_loaded_extensions()                |
-| hostname()       | gethostname() or empty string (`''`)   |
-| ipV4()           | gethostbyname()                        |
-| httpHost()       | $_SERVER['HTTP_HOST'] or empty string  |
-| resolve($remote) | gethostbyname($remote) or empty string |
+| method                | native PHP call                        |
+| --------------------- | -------------------------------------- |
+| sapi()                | PHP_SAPI                               |
+| version()             | PHP_VERSION                            |
+| extensions()          | get_loaded_extensions()                |
+| hostname()            | gethostname() or empty string (`''`)   |
+| ipV4()                | gethostbyname()                        |
+| httpHost()            | $_SERVER['HTTP_HOST'] or empty string  |
+| resolve($remote)      | gethostbyname($remote) or empty string |
+| freeSpace($directory) | disk_free_space($directory)            |
 
 The FrozenSystem act as a fake for tests purpose.
 
@@ -128,7 +129,8 @@ class MyNetworkTest
             'production.local',
             '192.168.1.10',
             'app.my.org',
-            ['proxy.inside.local' => '10.10.0.10']
+            ['proxy.inside.local' => '10.10.0.10'],
+            1024 * 1024 * 100,
         );
 
         // When

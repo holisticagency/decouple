@@ -51,4 +51,9 @@ class System implements SystemInterface
 
         return $ip !== $remote ? $ip : '';
     }
+
+    public function freeSpace(string $directory): float
+    {
+        return (float) disk_free_space($directory);
+    }
 }

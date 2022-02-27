@@ -23,7 +23,8 @@ class FrozenSystem implements SystemInterface
         protected string $hostname,
         protected string $ipV4,
         protected string $httpHost,
-        protected array $remotes
+        protected array $remotes,
+        protected float $freeSpace,
     ) {
     }
 
@@ -60,5 +61,10 @@ class FrozenSystem implements SystemInterface
     public function resolve(string $remote): string
     {
         return array_key_exists($remote, $this->remotes) ? $this->remotes[$remote] : '';
+    }
+
+    public function freeSpace(string $directory): float
+    {
+        return $this->freeSpace;
     }
 }

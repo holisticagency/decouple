@@ -32,7 +32,8 @@ class FrozenSystemTest extends TestCase
             'frozen.tld',
             [
                 'frozen.tld' => '1.2.3.4',
-            ]
+            ],
+            7,
         );
     }
 
@@ -135,5 +136,17 @@ class FrozenSystemTest extends TestCase
 
         // Then
         $this->assertEquals($expected, $actual);
+    }
+
+    public function testFreeSpace()
+    {
+        // Given
+        // $this->system
+
+        // When
+        $actual = $this->system->freeSpace('anywhere');
+
+        // Then
+        $this->assertEquals(7, $actual);
     }
 }
