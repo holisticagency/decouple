@@ -127,6 +127,7 @@ class MyNetworkTest
             'fpm-fcgi',
             '7.4.28',
             ['zip', 'curl'],
+            '16M',
             'production.local',
             '192.168.1.10',
             'app.my.org',
