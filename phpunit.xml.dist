@@ -31,5 +31,6 @@
 
     <php>
         <server name='HTTP_HOST' value='frozen.tld' />
+        <server name='DOCUMENT_ROOT' value='/var/www/html' />
     </php>
 </phpunit>

@@ -35,6 +35,7 @@ class FrozenSystemTest extends TestCase
                 'frozen.tld' => '1.2.3.4',
             ],
             7,
+            __DIR__,
         );
     }
 
@@ -161,5 +162,17 @@ class FrozenSystemTest extends TestCase
 
         // Then
         $this->assertEquals(7, $actual);
+    }
+
+    public function testDocumentRoot()
+    {
+        // Given
+        // $this->system
+
+        // When
+        $actual = $this->system->documentRoot();
+
+        // Then
+        $this->assertEquals(__DIR__, $actual);
     }
 }

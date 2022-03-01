@@ -61,4 +61,9 @@ class System implements SystemInterface
     {
         return (float) disk_free_space($directory);
     }
+
+    public function documentRoot(): string
+    {
+        return $_SERVER['DOCUMENT_ROOT'] ?? '';
+    }
 }

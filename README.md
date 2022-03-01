@@ -99,6 +99,7 @@ that may be empty depending on real conditions of the PHP platform.
 | httpHost()            | $_SERVER['HTTP_HOST'] or empty string          |
 | resolve($remote)      | gethostbyname($remote) or empty string         |
 | freeSpace($directory) | disk_free_space($directory)                    |
+| documentRoot()        | $_SERVER['DOCUMENT_ROOT'] or empty string      |
 
 The FrozenSystem act as a fake for tests purpose.
 
@@ -133,6 +134,7 @@ class MyNetworkTest
             'app.my.org',
             ['proxy.inside.local' => '10.10.0.10'],
             1024 * 1024 * 100,
+            '/home/user/public_html',
         );
 
         // When

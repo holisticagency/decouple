@@ -144,4 +144,16 @@ class SystemTest extends TestCase
         // Then
         $this->assertEquals(disk_free_space(__DIR__), $actual);
     }
+
+    public function testDocumentRoot()
+    {
+        // Given
+        $system = new System();
+
+        // When
+        $actual = $system->documentRoot();
+
+        // Then
+        $this->assertEquals('/var/www/html', $actual);
+    }
 }

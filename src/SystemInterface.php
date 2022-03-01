@@ -35,4 +35,6 @@ interface SystemInterface
     public function resolve(string $remote): string;
 
     public function freeSpace(string $directory): float;
+
+    public function documentRoot(): string;
 }

@@ -29,6 +29,7 @@ class FrozenSystem implements SystemInterface
         protected string $httpHost,
         protected array $remotes,
         protected float $freeSpace,
+        protected string $documentRoot,
     ) {
     }
 
@@ -75,5 +76,10 @@ class FrozenSystem implements SystemInterface
     public function freeSpace(string $directory): float
     {
         return $this->freeSpace;
+    }
+
+    public function documentRoot(): string
+    {
+        return $this->documentRoot;
     }
 }
