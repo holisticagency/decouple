@@ -24,132 +24,24 @@ class FrozenSystemTest extends TestCase
     protected function setUp(): void
     {
         $this->system = new FrozenSystem(
-            'apache2handler',
-            '8.1.3',
-            ['zip', 'curl'],
-            '128M',
-            'localhost',
-            '127.0.0.1',
-            'frozen.tld',
-            [
-                'frozen.tld' => '1.2.3.4',
-            ],
             7,
             __DIR__,
         );
     }
 
-    public function testSapi()
+    public function testCreateFromArray()
     {
         // Given
         // $this->system
 
         // When
-        $actual = $this->system->sapi();
+        $actual = FrozenSystem::createFromArray([
+            'freeSpace' => 7,
+            'documentRoot' => __DIR__,
+        ]);
 
         // Then
-        $this->assertEquals('apache2handler', $actual);
-    }
-
-    public function testVersion()
-    {
-        // Given
-        // $this->system
-
-        // When
-        $actual = $this->system->version();
-
-        // Then
-        $this->assertEquals('8.1.3', $actual);
-    }
-
-    public function testExtensions()
-    {
-        // Given
-        // $this->system
-
-        // When
-        $actual = $this->system->extensions();
-
-        // Then
-        $this->assertEquals(['zip', 'curl'], $actual);
-        $this->assertNotContains('xml', $actual);
-    }
-
-    public function testMemory()
-    {
-        // Given
-        // $this->system
-
-        // When
-        $actual = $this->system->memory();
-
-        // Then
-        $this->assertEquals('128M', $actual);
-    }
-
-    public function testHostname()
-    {
-        // Given
-        // $this->system
-
-        // When
-        $actual = $this->system->hostname();
-
-        // Then
-        $this->assertEquals('localhost', $actual);
-    }
-
-    public function testIpV4()
-    {
-        // Given
-        // $this->system
-
-        // When
-        $actual = $this->system->ipV4();
-
-        // Then
-        $this->assertEquals('127.0.0.1', $actual);
-    }
-
-    public function testHttpHost()
-    {
-        // Given
-        // $this->system
-
-        // When
-        $actual = $this->system->httpHost();
-
-        // Then
-        $this->assertEquals('frozen.tld', $actual);
-    }
-
-    public function dataResolve()
-    {
-        return [
-            'unresolved' => [
-                '',
-                'www.'.md5(mt_rand()).'.'.substr(md5(mt_rand()), 0, 3),
-            ],
-            'resolved' => [
-                '1.2.3.4',
-                'frozen.tld',
-            ],
-        ];
-    }
-    /**
-     * @dataProvider dataResolve
-     */
-    public function testResolve($expected, $remote)
-    {
-        // Given
-        // $this->system
-
-        // When
-        $actual = $this->system->resolve($remote);
-
-        // Then
-        $this->assertEquals($expected, $actual);
+        $this->assertEquals($this->system, $actual);
     }
 
     public function testFreeSpace()

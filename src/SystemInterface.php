@@ -15,25 +15,6 @@ namespace HolisticAgency\Frozen;
 
 interface SystemInterface
 {
-    public function sapi(): string;
-
-    public function version(): string;
-
-    /**
-     * @return string[]
-     */
-    public function extensions(): array;
-
-    public function memory(): string;
-
-    public function hostname(): string;
-
-    public function ipV4(): string;
-
-    public function httpHost(): string;
-
-    public function resolve(string $remote): string;
-
     public function freeSpace(string $directory): float;
 
     public function documentRoot(): string;

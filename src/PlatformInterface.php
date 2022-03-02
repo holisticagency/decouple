@@ -13,15 +13,16 @@ declare(strict_types=1);
 
 namespace HolisticAgency\Frozen;
 
-class System implements SystemInterface
+interface PlatformInterface
 {
-    public function freeSpace(string $directory): float
-    {
-        return (float) disk_free_space($directory);
-    }
+    public function sapi(): string;
 
-    public function documentRoot(): string
-    {
-        return $_SERVER['DOCUMENT_ROOT'] ?? '';
-    }
+    public function version(): string;
+
+    /**
+     * @return string[]
+     */
+    public function extensions(): array;
+
+    public function memory(): string;
 }

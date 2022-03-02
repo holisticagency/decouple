@@ -62,7 +62,7 @@ class MyClassTest
 }
 ```
 
-### Randomizer
+### RandomizerInterface
 
 The Randomizer `random()` method returns an integer from a `mt_rand()` call.
 
@@ -83,10 +83,14 @@ $guesser = new FrozenRandomizer(10);
 $cheater = $guesser->random(); // Always 10
 ```
 
-### System
+### SystemInterface
 
-The System methods return strings (or a float in the special case of freeSpace)
-that may be empty depending on real conditions of the PHP platform.
+| method                | native PHP call                                  |
+| --------------------- | ------------------------------------------------ |
+| freeSpace($directory) | disk_free_space($directory)                      |
+| documentRoot()        | $_SERVER['DOCUMENT_ROOT'] or empty string (`''`) |
+
+### PlatformInerface
 
 | method                | native PHP call                                |
 | --------------------- | ---------------------------------------------- |
@@ -94,29 +98,32 @@ that may be empty depending on real conditions of the PHP platform.
 | version()             | PHP_VERSION                                    |
 | extensions()          | get_loaded_extensions()                        |
 | memory()              | ini_get('memory_limit') or empty string (`''`) |
-| hostname()            | gethostname() or empty string                  |
+
+### NetworkInterface
+
+| method                | native PHP call                                |
+| --------------------- | ---------------------------------------------- |
+| hostname()            | gethostname() or empty string (`''`)           |
 | ipV4()                | gethostbyname()                                |
 | httpHost()            | $_SERVER['HTTP_HOST'] or empty string          |
 | resolve($remote)      | gethostbyname($remote) or empty string         |
-| freeSpace($directory) | disk_free_space($directory)                    |
-| documentRoot()        | $_SERVER['DOCUMENT_ROOT'] or empty string      |
 
-The FrozenSystem act as a fake for tests purpose.
+## Example
 
 ```php
 // src/MyNetwork.php
-use HolisticAgency\Frozen\SystemInterface;
+use HolisticAgency\Frozen\NetworkInterface;
 
 class MyNetwork
 {
-    public checkIfRemoteIsAvailable(SystemInterface $system, string $remote): bool
+    public checkIfRemoteIsAvailable(NetworkInterface $system, string $remote): bool
     {
         return $system->resolve($remote) != '';
     }
 }
 
 // tests/MyNetworkTest.php
-use HolisticAgency\Frozen\FrozenSystem;
+use HolisticAgency\Frozen\FrozenNetwork;
 
 class MyNetworkTest
 {
@@ -124,17 +131,11 @@ class MyNetworkTest
     {
         // Given
         $myTestClass = new MyNetwork();
-        $frozen = new FrozenSystem(
-            'fpm-fcgi',
-            '7.4.28',
-            ['zip', 'curl'],
-            '16M',
+        $frozen = new FrozenNetwork(
             'production.local',
             '192.168.1.10',
             'app.my.org',
             ['proxy.inside.local' => '10.10.0.10'],
-            1024 * 1024 * 100,
-            '/home/user/public_html',
         );
 
         // When

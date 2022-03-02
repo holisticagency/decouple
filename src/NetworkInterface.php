@@ -13,15 +13,18 @@ declare(strict_types=1);
 
 namespace HolisticAgency\Frozen;
 
-class System implements SystemInterface
+interface NetworkInterface
 {
-    public function freeSpace(string $directory): float
-    {
-        return (float) disk_free_space($directory);
-    }
+    public function hostname(): string;
 
-    public function documentRoot(): string
-    {
-        return $_SERVER['DOCUMENT_ROOT'] ?? '';
-    }
+    public function ipV4(): string;
+
+    public function httpHost(): string;
+
+    /**
+     * @return array<string, string>
+     */
+    public function remotes(): array;
+
+    public function resolve(string $remote): string;
 }
