@@ -18,4 +18,6 @@ interface SystemInterface
     public function freeSpace(string $directory): float;
 
     public function documentRoot(): string;
+
+    public function pid(): int;
 }

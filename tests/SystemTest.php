@@ -42,4 +42,16 @@ class SystemTest extends TestCase
         // Then
         $this->assertEquals('/var/www/html', $actual);
     }
+
+    public function testPid()
+    {
+        // Given
+        $system = new System();
+
+        // When
+        $actual = $system->pid();
+
+        // Then
+        $this->assertEquals(getmypid(), $actual);
+    }
 }

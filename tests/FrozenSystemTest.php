@@ -26,6 +26,7 @@ class FrozenSystemTest extends TestCase
         $this->system = new FrozenSystem(
             7,
             __DIR__,
+            1234
         );
     }
 
@@ -38,6 +39,7 @@ class FrozenSystemTest extends TestCase
         $actual = FrozenSystem::createFromArray([
             'freeSpace' => 7,
             'documentRoot' => __DIR__,
+            'pid' => 1234,
         ]);
 
         // Then
@@ -66,5 +68,17 @@ class FrozenSystemTest extends TestCase
 
         // Then
         $this->assertEquals(__DIR__, $actual);
+    }
+
+    public function testPid()
+    {
+        // Given
+        // $this->system
+
+        // When
+        $actual = $this->system->pid();
+
+        // Then
+        $this->assertEquals(1234, $actual);
     }
 }

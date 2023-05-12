@@ -24,4 +24,9 @@ class System implements SystemInterface
     {
         return $_SERVER['DOCUMENT_ROOT'] ?? '';
     }
+
+    public function pid(): int
+    {
+        return getmypid() ?: 0;
+    }
 }

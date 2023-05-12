@@ -56,8 +56,9 @@ class MyClassTest
         $actual = $myTestClass->myMethod($frozen);
 
         // Then
-        // assert what you need knowing
-        // $now is equal to '2022-02-05 16:32:29 CET' inside myMethod()
+        // assert what you need
+        // knowing $now is equal to '2022-02-05 16:32:29 CET'
+        // inside myMethod()
     }
 }
 ```
@@ -89,8 +90,9 @@ $cheater = $guesser->random(); // Always 10
 | --------------------- | ------------------------------------------------ |
 | freeSpace($directory) | disk_free_space($directory)                      |
 | documentRoot()        | $_SERVER['DOCUMENT_ROOT'] or empty string (`''`) |
+| pid()                 | getmypid()                                       |
 
-### PlatformInerface
+### PlatformInterface
 
 | method                | native PHP call                                |
 | --------------------- | ---------------------------------------------- |

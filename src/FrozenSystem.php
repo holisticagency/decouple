@@ -18,6 +18,7 @@ class FrozenSystem implements SystemInterface
     public function __construct(
         protected float $freeSpace,
         protected string $documentRoot,
+        protected int $pid,
     ) {
     }
 
@@ -33,7 +34,8 @@ class FrozenSystem implements SystemInterface
     ): self {
         return new self(
             $frozenParameters['freeSpace'] ?? $system?->freeSpace($system->documentRoot()) ?? 0,
-            $frozenParameters['documentRoot'] ?? $system?->documentRoot() ?? ''
+            $frozenParameters['documentRoot'] ?? $system?->documentRoot() ?? '',
+            $frozenParameters['pid'] ?? $system->pid() ?? 0,
         );
     }
 
@@ -45,5 +47,10 @@ class FrozenSystem implements SystemInterface
     public function documentRoot(): string
     {
         return $this->documentRoot;
+    }
+
+    public function pid(): int
+    {
+        return $this->pid;
     }
 }
