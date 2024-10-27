@@ -16,7 +16,7 @@ namespace HolisticAgency\Frozen;
 class FrozenNetwork implements NetworkInterface
 {
     /**
-     * @param array<string, string> $remotes
+     * @param array<string,string> $remotes
      */
     public function __construct(
         protected string $hostname,
@@ -27,14 +27,14 @@ class FrozenNetwork implements NetworkInterface
     }
 
     /**
-     * @param array{'hostname'?: string, 'ipV4'?: string, 'httpHost'?: string, 'remotes'?: array<string, string>} $frozenParameters
+     * @param array{'hostname'?:string,'ipV4'?:string,'httpHost'?:string,'remotes'?:array<string,string>} $frozenParameters
      * @param NetworkInterface|null $network
      *
      * @return self
      */
     public static function createFromArray(
         array $frozenParameters = [],
-        ?NetworkInterface $network =  null
+        ?NetworkInterface $network =  null,
     ): self {
         return new self(
             $frozenParameters['hostname'] ?? $network?->hostname() ?? '',

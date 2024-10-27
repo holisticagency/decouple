@@ -13,15 +13,15 @@ declare(strict_types=1);
 
 namespace HolisticAgency\Frozen;
 
-use DateTimeInterface;
+use Psr\Clock\ClockInterface;
 
 class FrozenClock implements ClockInterface
 {
-    public function __construct(protected DateTimeInterface $now)
+    public function __construct(protected \DateTimeImmutable $now)
     {
     }
 
-    public function now(): DateTimeInterface
+    public function now(): \DateTimeImmutable
     {
         return $this->now;
     }

@@ -23,19 +23,19 @@ class FrozenSystem implements SystemInterface
     }
 
     /**
-     * @param array{'documentRoot'?: string, 'freeSpace'?: float} $frozenParameters
+     * @param array{documentRoot?:string,freeSpace?:float,pid?:int} $frozenParameters
      * @param SystemInterface|null $system
      *
      * @return self
      */
     public static function createFromArray(
         array $frozenParameters = [],
-        ?SystemInterface $system = null
+        ?SystemInterface $system = null,
     ): self {
         return new self(
             $frozenParameters['freeSpace'] ?? $system?->freeSpace($system->documentRoot()) ?? 0,
             $frozenParameters['documentRoot'] ?? $system?->documentRoot() ?? '',
-            $frozenParameters['pid'] ?? $system->pid() ?? 0,
+            $frozenParameters['pid'] ?? $system?->pid() ?? 0,
         );
     }
 

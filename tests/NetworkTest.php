@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Frozen\Tests;
+namespace HolisticAgency\Test\Frozen;
 
 use HolisticAgency\Frozen\Network;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers HolisticAgency\Frozen\Network
- */
+#[CoversClass(Network::class)]
 class NetworkTest extends TestCase
 {
     public function testHostname()
@@ -67,7 +67,7 @@ class NetworkTest extends TestCase
         $this->assertEquals([], $actual);
     }
 
-    public function dataResolve()
+    public static function dataResolve()
     {
         return [
             'unresolved' => [
@@ -75,15 +75,13 @@ class NetworkTest extends TestCase
                 'www.'.md5(mt_rand()).'.'.substr(md5(mt_rand()), 0, 3),
             ],
             'resolved' => [
-                gethostbyname(gethostname()),
-                gethostname(),
+                gethostbyname('github.com'),
+                'github.com',
             ],
         ];
     }
 
-    /**
-     * @dataProvider dataResolve
-     */
+    #[DataProvider('dataResolve')]
     public function testResolve($expected, $remote)
     {
         // Given

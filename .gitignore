@@ -1,7 +1,7 @@
 /vendor/
 /composer.lock
 /phpunit.xml
-/.phpunit.cache
+/.phpunit.cache/
 /.php-cs-fixer.php
 /.php-cs-fixer.cache
 /phpstan.neon

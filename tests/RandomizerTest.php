@@ -9,14 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Frozen\Tests;
+namespace HolisticAgency\Test\Frozen;
 
 use HolisticAgency\Frozen\Randomizer;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers HolisticAgency\Frozen\Randomizer
- */
+#[CoversClass(Randomizer::class)]
 class RandomizerTest extends TestCase
 {
     public function testRandom()

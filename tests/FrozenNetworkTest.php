@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Frozen\Tests;
+namespace HolisticAgency\Test\Frozen;
 
 use HolisticAgency\Frozen\FrozenNetwork;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers HolisticAgency\Frozen\FrozenNetwork
- */
+#[CoversClass(FrozenNetwork::class)]
 class FrozenNetworkTest extends TestCase
 {
     private FrozenNetwork $network;
@@ -100,7 +100,7 @@ class FrozenNetworkTest extends TestCase
         $this->assertEquals(['frozen.tld' => '1.2.3.4'], $actual);
     }
 
-    public function dataResolve()
+    public static function dataResolve()
     {
         return [
             'unresolved' => [
@@ -113,9 +113,8 @@ class FrozenNetworkTest extends TestCase
             ],
         ];
     }
-    /**
-     * @dataProvider dataResolve
-     */
+
+    #[DataProvider('dataResolve')]
     public function testResolve($expected, $remote)
     {
         // Given

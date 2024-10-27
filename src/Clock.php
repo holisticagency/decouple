@@ -13,13 +13,12 @@ declare(strict_types=1);
 
 namespace HolisticAgency\Frozen;
 
-use DateTimeImmutable;
-use DateTimeInterface;
+use Psr\Clock\ClockInterface;
 
 class Clock implements ClockInterface
 {
-    public function now(): DateTimeInterface
+    public function now(): \DateTimeImmutable
     {
-        return new DateTimeImmutable();
+        return new \DateTimeImmutable();
     }
 }

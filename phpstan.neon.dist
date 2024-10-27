@@ -1,4 +1,5 @@
 parameters:
+  phpVersion: 080100
   paths:
     - src
   level: max

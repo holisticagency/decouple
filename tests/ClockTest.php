@@ -9,15 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Frozen\Tests;
+namespace HolisticAgency\Test\Frozen;
 
 use DateTimeImmutable;
 use HolisticAgency\Frozen\Clock;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers HolisticAgency\Frozen\Clock
- */
+#[CoversClass(Clock::class)]
 class ClockTest extends TestCase
 {
     public function testNow()

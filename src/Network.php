@@ -16,7 +16,7 @@ namespace HolisticAgency\Frozen;
 class Network implements NetworkInterface
 {
     /**
-     * @var array<string, string>
+     * @var array<string,string>
      */
     protected array $remotes = [];
 

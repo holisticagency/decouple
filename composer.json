@@ -1,29 +1,33 @@
 {
     "name": "holistic-agency/frozen",
     "description": "clock, system and random interfaces",
-    "type": "library",
     "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "HolisticAgency\\Frozen\\": "src/"
-        }
-    },
+    "type": "library",
     "authors": [
         {
             "name": "JamesRezo",
             "email": "james@rezo.net"
         }
     ],
-    "require-dev": {
-        "phpunit/phpunit": "^9.5",
-        "phpstan/phpstan": "^1.4"
+    "require": {
+        "php": ">=8.1",
+        "psr/clock": "^1.0"
     },
-    "autoload-dev": {
-        "psr-4": {
-            "HolisticAgency\\Frozen\\Tests\\": "tests/"
-        }
+    "require-dev": {
+        "phpstan/phpstan": "^1.12",
+        "phpunit/phpunit": "^11.4"
     },
     "provide": {
         "psr/clock-implementation": "1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "HolisticAgency\\Frozen\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HolisticAgency\\Test\\Frozen\\": "tests/"
+        }
     }
 }

@@ -22,7 +22,7 @@ interface NetworkInterface
     public function httpHost(): string;
 
     /**
-     * @return array<string, string>
+     * @return array<string,string>
      */
     public function remotes(): array;
 

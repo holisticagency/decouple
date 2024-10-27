@@ -27,20 +27,20 @@ class FrozenPlatform implements PlatformInterface
     }
 
     /**
-     * @param array{'sapi'?: string, 'version'?: string, 'memory'?: string, 'extensions'?: array<int, string>} $frozenParameters
+     * @param array{'sapi'?:string,'version'?:string,'memory'?:string,'extensions'?:string[]} $frozenParameters
      * @param PlatformInterface|null $platform
      *
      * @return self
      */
     public static function createFromArray(
         array $frozenParameters = [],
-        ?PlatformInterface $platform = null
+        ?PlatformInterface $platform = null,
     ): self {
         return new self(
             $frozenParameters['sapi'] ?? $platform?->sapi() ?? '',
             $frozenParameters['version'] ?? $platform?->version() ?? '',
             $frozenParameters['extensions'] ?? $platform?->extensions() ?? [],
-            $frozenParameters['memory'] ?? $platform?->memory() ?? ''
+            $frozenParameters['memory'] ?? $platform?->memory() ?? '',
         );
     }
 

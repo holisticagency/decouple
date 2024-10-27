@@ -9,14 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Frozen\Tests;
+namespace HolisticAgency\Test\Frozen;
 
 use HolisticAgency\Frozen\Platform;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers HolisticAgency\Frozen\Platform
- */
+#[CoversClass(Platform::class)]
 class PlatformTest extends TestCase
 {
     public function testSapi()

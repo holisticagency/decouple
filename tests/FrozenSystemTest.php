@@ -9,14 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Frozen\Tests;
+namespace HolisticAgency\Test\Frozen;
 
 use HolisticAgency\Frozen\FrozenSystem;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers HolisticAgency\Frozen\FrozenSystem
- */
+#[CoversClass(FrozenSystem::class)]
 class FrozenSystemTest extends TestCase
 {
     private FrozenSystem $system;
