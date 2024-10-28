@@ -11,9 +11,11 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Frozen;
+namespace HolisticAgency\Frozen\Frozen;
 
-class FrozenSystem implements SystemInterface
+use HolisticAgency\Frozen\SystemInterface;
+
+class System implements SystemInterface
 {
     public function __construct(
         protected float $freeSpace,

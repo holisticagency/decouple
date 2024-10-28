@@ -11,9 +11,11 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Frozen;
+namespace HolisticAgency\Frozen\Frozen;
 
-class FrozenNetwork implements NetworkInterface
+use HolisticAgency\Frozen\NetworkInterface;
+
+class Network implements NetworkInterface
 {
     /**
      * @param array<string,string> $remotes
@@ -27,7 +29,7 @@ class FrozenNetwork implements NetworkInterface
     }
 
     /**
-     * @param array{'hostname'?:string,'ipV4'?:string,'httpHost'?:string,'remotes'?:array<string,string>} $frozenParameters
+     * @param array{hostname?:string,ipV4?:string,httpHost?:string,remotes?:array<string,string>} $frozenParameters
      * @param NetworkInterface|null $network
      *
      * @return self

@@ -11,9 +11,11 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Frozen;
+namespace HolisticAgency\Frozen\Frozen;
 
-class FrozenPlatform implements PlatformInterface
+use HolisticAgency\Frozen\PlatformInterface;
+
+class Platform implements PlatformInterface
 {
     /**
      * @param string[] $extensions
@@ -27,7 +29,7 @@ class FrozenPlatform implements PlatformInterface
     }
 
     /**
-     * @param array{'sapi'?:string,'version'?:string,'memory'?:string,'extensions'?:string[]} $frozenParameters
+     * @param array{sapi?:string,version?:string,memory?:string,extensions?:string[]} $frozenParameters
      * @param PlatformInterface|null $platform
      *
      * @return self

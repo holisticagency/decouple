@@ -9,21 +9,21 @@
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Test\Frozen;
+namespace HolisticAgency\Test\Frozen\Frozen;
 
-use HolisticAgency\Frozen\FrozenNetwork;
+use HolisticAgency\Frozen\Frozen\Network;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-#[CoversClass(FrozenNetwork::class)]
+#[CoversClass(Network::class)]
 class FrozenNetworkTest extends TestCase
 {
-    private FrozenNetwork $network;
+    private Network $network;
 
     protected function setUp(): void
     {
-        $this->network = new FrozenNetwork(
+        $this->network = new Network(
             'localhost',
             '127.0.0.1',
             'frozen.tld',
@@ -39,7 +39,7 @@ class FrozenNetworkTest extends TestCase
         // $this->network
 
         // When
-        $actual = FrozenNetwork::createFromArray([
+        $actual = Network::createFromArray([
             'hostname' => 'localhost',
             'ipV4' => '127.0.0.1',
             'httpHost' => 'frozen.tld',

@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Test\Frozen;
+namespace HolisticAgency\Test\Frozen\Frozen;
 
-use HolisticAgency\Frozen\FrozenPlatform;
+use HolisticAgency\Frozen\Frozen\Platform;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-#[CoversClass(FrozenPlatform::class)]
-class FrozenPlatformTest extends TestCase
+#[CoversClass(Platform::class)]
+class PlatformTest extends TestCase
 {
-    private FrozenPlatform $platform;
+    private Platform $platform;
 
     protected function setUp(): void
     {
-        $this->platform = new FrozenPlatform(
+        $this->platform = new Platform(
             'apache2handler',
             '8.1.3',
             ['zip', 'curl'],
@@ -36,7 +36,7 @@ class FrozenPlatformTest extends TestCase
         // $this->platform
 
         // When
-        $actual = FrozenPlatform::createFromArray([
+        $actual = Platform::createFromArray([
             'sapi' => 'apache2handler',
             'version' => '8.1.3',
             'extensions' => ['zip', 'curl'],

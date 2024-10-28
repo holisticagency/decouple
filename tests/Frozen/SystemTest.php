@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Test\Frozen;
+namespace HolisticAgency\Test\Frozen\Frozen;
 
-use HolisticAgency\Frozen\FrozenSystem;
+use HolisticAgency\Frozen\Frozen\System;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-#[CoversClass(FrozenSystem::class)]
-class FrozenSystemTest extends TestCase
+#[CoversClass(System::class)]
+class SystemTest extends TestCase
 {
-    private FrozenSystem $system;
+    private System $system;
 
     protected function setUp(): void
     {
-        $this->system = new FrozenSystem(
+        $this->system = new System(
             7,
             __DIR__,
             1234
@@ -35,7 +35,7 @@ class FrozenSystemTest extends TestCase
         // $this->system
 
         // When
-        $actual = FrozenSystem::createFromArray([
+        $actual = System::createFromArray([
             'freeSpace' => 7,
             'documentRoot' => __DIR__,
             'pid' => 1234,

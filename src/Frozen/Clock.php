@@ -11,16 +11,18 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Frozen;
+namespace HolisticAgency\Frozen\Frozen;
 
-class FrozenRandomizer implements RandomizerInterface
+use Psr\Clock\ClockInterface;
+
+class Clock implements ClockInterface
 {
-    public function __construct(protected int $rand)
+    public function __construct(protected \DateTimeImmutable $now)
     {
     }
 
-    public function random(): int
+    public function now(): \DateTimeImmutable
     {
-        return $this->rand;
+        return $this->now;
     }
 }

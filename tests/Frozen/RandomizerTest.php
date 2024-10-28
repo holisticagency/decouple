@@ -9,19 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Test\Frozen;
+namespace HolisticAgency\Test\Frozen\Frozen;
 
-use HolisticAgency\Frozen\FrozenRandomizer;
+use HolisticAgency\Frozen\Frozen\Randomizer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-#[CoversClass(FrozenRandomizer::class)]
-class FrozenRandomizerTest extends TestCase
+#[CoversClass(Randomizer::class)]
+class RandomizerTest extends TestCase
 {
     public function testRandom()
     {
         // Given
-        $randomizer = new FrozenRandomizer(1);
+        $randomizer = new Randomizer(1);
 
         // When
         $actual = $randomizer->random();
