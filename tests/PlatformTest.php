@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Test\Frozen;
+namespace HolisticAgency\Test\Decouple;
 
-use HolisticAgency\Frozen\Platform;
+use HolisticAgency\Decouple\Platform;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
@@ -27,7 +27,7 @@ class PlatformTest extends TestCase
         $actual = $system->sapi();
 
         // Then
-        $this->assertEquals(PHP_SAPI, $actual);
+        $this->assertEquals(\PHP_SAPI, $actual);
     }
 
     public function testVersion()
@@ -39,7 +39,7 @@ class PlatformTest extends TestCase
         $actual = $system->version();
 
         // Then
-        $this->assertEquals(PHP_VERSION, $actual);
+        $this->assertEquals(\PHP_VERSION, $actual);
     }
 
     public function testExtensions()
@@ -51,8 +51,8 @@ class PlatformTest extends TestCase
         $actual = $system->extensions();
 
         // Then
-        $this->assertEquals(get_loaded_extensions(), $actual);
-        $this->assertNotContains(md5(mt_rand()), $actual);
+        $this->assertEquals(\get_loaded_extensions(), $actual);
+        $this->assertNotContains(md5(\mt_rand()), $actual);
     }
 
     public function testMemory()
@@ -64,6 +64,6 @@ class PlatformTest extends TestCase
         $actual = $system->memory();
 
         // Then
-        $this->assertEquals(ini_get('memory_limit') ?: '', $actual);
+        $this->assertEquals(\ini_get('memory_limit') ?: '', $actual);
     }
 }

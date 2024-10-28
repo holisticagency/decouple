@@ -11,18 +11,18 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Frozen;
+namespace HolisticAgency\Decouple;
 
 class Randomizer implements RandomizerInterface
 {
     public function __construct(
         public readonly int $min = 0,
-        public readonly int $max = PHP_INT_MAX,
+        public readonly int $max = \PHP_INT_MAX,
     ) {
     }
 
     public function random(): int
     {
-        return mt_rand($this->min, $this->max);
+        return \mt_rand($this->min, $this->max);
     }
 }

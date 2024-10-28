@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Test\Frozen;
+namespace HolisticAgency\Test\Decouple;
 
-use HolisticAgency\Frozen\System;
+use HolisticAgency\Decouple\System;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
@@ -27,7 +27,7 @@ class SystemTest extends TestCase
         $actual = $system->freeSpace(__DIR__);
 
         // Then
-        $this->assertEquals(disk_free_space(__DIR__), $actual);
+        $this->assertEquals(\disk_free_space(__DIR__), $actual);
     }
 
     public function testDocumentRoot()
@@ -51,6 +51,6 @@ class SystemTest extends TestCase
         $actual = $system->pid();
 
         // Then
-        $this->assertEquals(getmypid(), $actual);
+        $this->assertEquals(\getmypid(), $actual);
     }
 }

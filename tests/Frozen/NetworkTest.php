@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Test\Frozen\Frozen;
+namespace HolisticAgency\Test\Decouple\Frozen;
 
-use HolisticAgency\Frozen\Frozen\Network;
+use HolisticAgency\Decouple\Frozen\Network;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
@@ -105,7 +105,7 @@ class FrozenNetworkTest extends TestCase
         return [
             'unresolved' => [
                 '',
-                'www.'.md5(mt_rand()).'.'.substr(md5(mt_rand()), 0, 3),
+                'www.'.md5(\mt_rand()).'.'.substr(md5(\mt_rand()), 0, 3),
             ],
             'resolved' => [
                 '1.2.3.4',

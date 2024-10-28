@@ -9,10 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Test\Frozen;
+namespace HolisticAgency\Test\Decouple;
 
-use DateTimeImmutable;
-use HolisticAgency\Frozen\Clock;
+use HolisticAgency\Decouple\Clock;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
@@ -25,9 +24,9 @@ class ClockTest extends TestCase
         $clock = new Clock();
 
         // When
-        $beforeActual = new DateTimeImmutable('now');
+        $beforeActual = new \DateTimeImmutable('now');
         $actual = $clock->now();
-        $afterActual = new DateTimeImmutable('now');
+        $afterActual = new \DateTimeImmutable('now');
 
         // Then
         $this->assertGreaterThanOrEqual($beforeActual, $actual);

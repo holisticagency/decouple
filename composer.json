@@ -1,5 +1,5 @@
 {
-    "name": "holistic-agency/frozen",
+    "name": "holistic-agency/decouple",
     "description": "clock, system and random interfaces",
     "license": "MIT",
     "type": "library",
@@ -14,7 +14,6 @@
         "psr/clock": "^1.0"
     },
     "require-dev": {
-        "phpstan/phpstan": "^1.12",
         "phpunit/phpunit": "^11.4"
     },
     "provide": {
@@ -22,12 +21,12 @@
     },
     "autoload": {
         "psr-4": {
-            "HolisticAgency\\Frozen\\": "src/"
+            "HolisticAgency\\Decouple\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "HolisticAgency\\Test\\Frozen\\": "tests/"
+            "HolisticAgency\\Test\\Decouple\\": "tests/"
         }
     }
 }

@@ -11,9 +11,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Frozen\Frozen;
+namespace HolisticAgency\Decouple\Frozen;
 
-use HolisticAgency\Frozen\NetworkInterface;
+use HolisticAgency\Decouple\NetworkInterface;
 
 class Network implements NetworkInterface
 {
@@ -68,6 +68,6 @@ class Network implements NetworkInterface
 
     public function resolve(string $remote): string
     {
-        return array_key_exists($remote, $this->remotes) ? $this->remotes[$remote] : '';
+        return \array_key_exists($remote, $this->remotes) ? $this->remotes[$remote] : '';
     }
 }

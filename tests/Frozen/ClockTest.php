@@ -9,10 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Test\Frozen\Frozen;
+namespace HolisticAgency\Test\Decouple\Frozen;
 
-use DateTimeImmutable;
-use HolisticAgency\Frozen\Frozen\Clock;
+use HolisticAgency\Decouple\Frozen\Clock;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
@@ -22,7 +21,7 @@ class FrozenClockTest extends TestCase
     public function testNow()
     {
         // Given
-        $clock = new Clock(new DateTimeImmutable('1971-11-05 19:40:12 CET'));
+        $clock = new Clock(new \DateTimeImmutable('1971-11-05 19:40:12 CET'));
 
         // When
         $actual = $clock->now()->format('Y-m-d H:i:s T');

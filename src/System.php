@@ -11,13 +11,13 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Frozen;
+namespace HolisticAgency\Decouple;
 
 class System implements SystemInterface
 {
     public function freeSpace(string $directory): float
     {
-        return (float) disk_free_space($directory);
+        return (float) \disk_free_space($directory);
     }
 
     public function documentRoot(): string
@@ -27,6 +27,6 @@ class System implements SystemInterface
 
     public function pid(): int
     {
-        return getmypid() ?: 0;
+        return \getmypid() ?: 0;
     }
 }

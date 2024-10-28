@@ -11,9 +11,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Frozen\Frozen;
+namespace HolisticAgency\Decouple\Frozen;
 
-use HolisticAgency\Frozen\PlatformInterface;
+use HolisticAgency\Decouple\PlatformInterface;
 
 class Platform implements PlatformInterface
 {

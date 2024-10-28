@@ -11,27 +11,27 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Frozen;
+namespace HolisticAgency\Decouple;
 
 class Platform implements PlatformInterface
 {
     public function sapi(): string
     {
-        return PHP_SAPI;
+        return \PHP_SAPI;
     }
 
     public function version(): string
     {
-        return PHP_VERSION;
+        return \PHP_VERSION;
     }
 
     public function extensions(): array
     {
-        return get_loaded_extensions();
+        return \get_loaded_extensions();
     }
 
     public function memory(): string
     {
-        return ini_get('memory_limit') ?: '';
+        return \ini_get('memory_limit') ?: '';
     }
 }

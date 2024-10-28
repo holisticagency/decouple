@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Test\Frozen;
+namespace HolisticAgency\Test\Decouple;
 
-use HolisticAgency\Frozen\Randomizer;
+use HolisticAgency\Decouple\Randomizer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 

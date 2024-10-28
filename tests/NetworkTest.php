@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Test\Frozen;
+namespace HolisticAgency\Test\Decouple;
 
-use HolisticAgency\Frozen\Network;
+use HolisticAgency\Decouple\Network;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
@@ -28,7 +28,7 @@ class NetworkTest extends TestCase
         $actual = $system->hostname();
 
         // Then
-        $this->assertEquals(gethostname(), $actual);
+        $this->assertEquals(\gethostname(), $actual);
     }
 
     public function testIpV4()
@@ -40,7 +40,7 @@ class NetworkTest extends TestCase
         $actual = $system->ipV4();
 
         // Then
-        $this->assertEquals(gethostbyname(gethostname()), $actual);
+        $this->assertEquals(\gethostbyname(\gethostname()), $actual);
     }
 
     public function testHttpHost()
@@ -72,10 +72,10 @@ class NetworkTest extends TestCase
         return [
             'unresolved' => [
                 '',
-                'www.'.md5(mt_rand()).'.'.substr(md5(mt_rand()), 0, 3),
+                'www.'.md5(\mt_rand()).'.'.substr(md5(\mt_rand()), 0, 3),
             ],
             'resolved' => [
-                gethostbyname('github.com'),
+                \gethostbyname('github.com'),
                 'github.com',
             ],
         ];

@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Frozen;
+namespace HolisticAgency\Decouple;
 
 class Network implements NetworkInterface
 {
@@ -22,12 +22,12 @@ class Network implements NetworkInterface
 
     public function hostname(): string
     {
-        return gethostname() ?: '';
+        return \gethostname() ?: '';
     }
 
     public function ipV4(): string
     {
-        return gethostbyname($this->hostname());
+        return \gethostbyname($this->hostname());
     }
 
     public function httpHost(): string
@@ -42,8 +42,8 @@ class Network implements NetworkInterface
 
     public function resolve(string $remote): string
     {
-        if (!array_key_exists($remote, $this->remotes)) {
-            $ip =  gethostbyname($remote);
+        if (!\array_key_exists($remote, $this->remotes)) {
+            $ip =  \gethostbyname($remote);
             $this->remotes[$remote] = $ip !== $remote ? $ip : '';
         }
 

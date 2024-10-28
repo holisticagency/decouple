@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace HolisticAgency\Test\Frozen\Frozen;
+namespace HolisticAgency\Test\Decouple\Frozen;
 
-use HolisticAgency\Frozen\Frozen\Platform;
+use HolisticAgency\Decouple\Frozen\Platform;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 

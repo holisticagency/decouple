@@ -1,4 +1,4 @@
-# Frozen
+# HolisticAgency/Decouple
 
 Very light and agnostic set of interfaces and implementations designed to
 fake or render unpredictable return values of some PHP native functions.
@@ -6,7 +6,7 @@ fake or render unpredictable return values of some PHP native functions.
 ## Installation
 
 ```bash
-composer require holistic-agency/frozen:dev-main
+composer require holistic-agency/decouple:dev-main
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ passed to the constructor.
 
 ```php
 // src/MyClass.php
-use HolisticAgency\Frozen\ClockInterface;
+use HolisticAgency\Decouple\ClockInterface;
 
 class MyClass
 {
@@ -36,13 +36,13 @@ class MyClass
 }
 
 // src/Elsewhere.php
-use HolisticAgency\Frozen\Clock;
+use HolisticAgency\Decouple\Clock;
 
 $myClass = new Myclass();
 $myClass->myMethod(new Clock());
 
 // tests/MyClassTest.php
-use HolisticAgency\Frozen\FrozenClock;
+use HolisticAgency\Decouple\Frozen\Clock;
 
 class MyClassTest
 {
@@ -50,7 +50,7 @@ class MyClassTest
     {
         // Given
         $myTestClass = new MyClass();
-        $frozen = new FrozenClock(new DateTimeImmutable('2022-02-05 16:32:29 CET'));
+        $frozen = new Clock(new DateTimeImmutable('2022-02-05 16:32:29 CET'));
 
         // When
         $actual = $myTestClass->myMethod($frozen);
@@ -80,7 +80,7 @@ if ($dieRoll == $this->min) {
     echo 'You loose.'; // if 1 is rolled
 }
 
-$guesser = new FrozenRandomizer(10);
+$guesser = new Frozen\Randomizer(10);
 $cheater = $guesser->random(); // Always 10
 ```
 
@@ -114,7 +114,7 @@ $cheater = $guesser->random(); // Always 10
 
 ```php
 // src/MyNetwork.php
-use HolisticAgency\Frozen\NetworkInterface;
+use HolisticAgency\Decouple\NetworkInterface;
 
 class MyNetwork
 {
@@ -125,7 +125,7 @@ class MyNetwork
 }
 
 // tests/MyNetworkTest.php
-use HolisticAgency\Frozen\FrozenNetwork;
+use HolisticAgency\Decouple\Frozen\Network as FrozenNetwork;
 
 class MyNetworkTest
 {
