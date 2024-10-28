@@ -1,7 +1,9 @@
 # HolisticAgency/Decouple
 
-Very light and agnostic set of interfaces and implementations designed to
-fake or render unpredictable return values of some PHP native functions.
+Decoupling interfaces.
+
+This package is a very light and agnostic set of interfaces and implementations designed to
+fake or render unpredictable return values of some PHP native functions dealing with external concerns.
 
 ## Installation
 
@@ -70,7 +72,7 @@ class MyClassTest
 
 The Randomizer `random()` method returns an integer from a `mt_rand()` call.
 
-The FrozenRandomizer `random()` method returns the value passed to the constructor.
+The Frozen\Randomizer `random()` method returns the value passed to the constructor.
 
 ```php
 $random = new Randomizer();

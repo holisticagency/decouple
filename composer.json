@@ -1,8 +1,16 @@
 {
     "name": "holistic-agency/decouple",
-    "description": "clock, system and random interfaces",
+    "description": "decoupling interfaces",
     "license": "MIT",
     "type": "library",
+    "keywords": [
+        "clock",
+        "system",
+        "platform",
+        "network",
+        "decoupling",
+        "interfaces"
+    ],
     "authors": [
         {
             "name": "JamesRezo",
