@@ -13,15 +13,18 @@ composer require holistic-agency/decouple:dev-main
 
 ### ClockInterface
 
+This package implememts `psr\clock`. See <https://www.php-fig.org/psr/psr-20/>
+
 The Clock `now()` method returns a new DateTimeImmutable object
 with the current time acccording to the php `date.timezone` setting.
 
-The FrozenClock `now()` method returns the DateTimeInterface object
+The Frozen\Clock `now()` method returns the DateTimeImmutable object
 passed to the constructor.
 
 ```php
 // src/MyClass.php
 use HolisticAgency\Decouple\ClockInterface;
+use Psr\Clock\ClockInterface;
 
 class MyClass
 {
