@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of holisticagency/frozen.
+ * This file is part of holisticagency/decouple.
  *
  * (c) JamesRezo <james@rezo.net>
  *

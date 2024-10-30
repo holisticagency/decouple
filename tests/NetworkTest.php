@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of holisticagency/frozen.
+ * This file is part of holisticagency/decouple.
  *
  * (c) JamesRezo <james@rezo.net>
  *
