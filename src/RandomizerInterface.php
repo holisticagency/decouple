@@ -15,5 +15,8 @@ namespace HolisticAgency\Decouple;
 
 interface RandomizerInterface
 {
+    /**
+     * @throws \RangeException if a range error at construction or at draw.
+     */
     public function random(): int;
 }

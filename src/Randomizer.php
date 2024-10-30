@@ -21,8 +21,15 @@ class Randomizer implements RandomizerInterface
     ) {
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function random(): int
     {
+        if ($this->min > $this->max) {
+            throw new \RangeException('max value is not greater than or equal to min value');
+        }
+
         return \mt_rand($this->min, $this->max);
     }
 }

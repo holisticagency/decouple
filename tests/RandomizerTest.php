@@ -30,4 +30,17 @@ class RandomizerTest extends TestCase
         $this->assertGreaterThanOrEqual(1, $actual);
         $this->assertLessThanOrEqual(6, $actual);
     }
+
+    public function testRangeException()
+    {
+        // Given
+        $this->expectException(\RangeException::class);
+        $this->expectExceptionMessage('max value is not greater than or equal to min value');
+
+        // When
+        (new Randomizer(2, 1))->random();
+
+        // Then
+        // An exception is thrown
+    }
 }
