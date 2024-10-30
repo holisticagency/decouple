@@ -17,12 +17,24 @@ use HolisticAgency\Decouple\RandomizerInterface;
 
 class Randomizer implements RandomizerInterface
 {
-    public function __construct(protected int $rand)
+    /** @var int[] */
+    private array $numbers;
+
+    /** @var int[] */
+    private array $reset;
+
+    public function __construct(int ...$numbers)
     {
+        $this->numbers = $numbers;
+        $this->reset = $this->numbers;
     }
 
     public function random(): int
     {
-        return $this->rand;
+        if (empty($this->numbers)) {
+            $this->numbers = $this->reset;
+        }
+
+        return (int) \array_shift($this->numbers);
     }
 }

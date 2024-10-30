@@ -29,4 +29,16 @@ class RandomizerTest extends TestCase
         // Then
         $this->assertEquals(1, $actual); // :-D
     }
+
+    public function testMultipleRandom()
+    {
+        // Given
+        $randomizer = new Randomizer(1, 2);
+
+        // When
+        $actual = [$randomizer->random(), $randomizer->random(), $randomizer->random()];
+
+        // Then
+        $this->assertEquals([1, 2, 1], $actual);
+    }
 }
