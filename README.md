@@ -68,25 +68,28 @@ class MyClassTest
 }
 ```
 
-### RandomizerInterface
+### NumberGeneratorInterface
 
-The Randomizer `random()` method returns an integer from a `mt_rand()` call.
+The MersenneTwister `draw()` method returns an integer from a `mt_rand()` call.
 
-The Frozen\Randomizer `random()` method returns the value passed to the constructor.
+The Frozen\NumberGenerator `draw()` method returns one of ordered values passed to the constructor cyclically.
 
 ```php
-$random = new Randomizer();
-$unknon = $random->random(); // an integer between 0 and PHP_INT_MAX included
+$generator = new MersenneTwister();
+$unknon = $generator->draw(); // an integer between 0 and PHP_INT_MAX included
 
-$random = new Randomizer(1, 6);
-$dieType = 'D' . strval($random->max); // D6
-$dieRoll = $random->random() ; // an integer between 1 and 6 included
-if ($dieRoll == $this->min) {
-    echo 'You loose.'; // if 1 is rolled
+$generator = new MersenneTwister(1, 6);
+$diceType = 'D' . strval($generator->max); // D6
+$diceRoll = $generator->draw() ; // an integer between 1 and 6 included
+if ($diceRoll == $this->min) {
+    echo $diceType . ' roll, you loose.'; // if 1 is rolled
 }
 
-$guesser = new Frozen\Randomizer(10);
-$cheater = $guesser->random(); // Always 10
+$guesser = new Frozen\NumberGenerator(10, 17, 1);
+$cheater = $guesser->draw(); // 10
+$cheater = $guesser->draw(); // 17
+$cheater = $guesser->draw(); //  1
+$cheater = $guesser->draw(); // 10
 ```
 
 ### SystemInterface
@@ -123,9 +126,9 @@ use HolisticAgency\Decouple\NetworkInterface;
 
 class MyNetwork
 {
-    public checkIfRemoteIsAvailable(NetworkInterface $system, string $remote): bool
+    public checkIfRemoteIsAvailable(NetworkInterface $network, string $remote): bool
     {
-        return $system->resolve($remote) != '';
+        return $network->resolve($remote) != '';
     }
 }
 

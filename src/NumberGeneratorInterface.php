@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace HolisticAgency\Decouple;
 
-interface RandomizerInterface
+interface NumberGeneratorInterface
 {
     /**
-     * @throws \RangeException if a range error at construction or at draw.
+     * @throws RangeException if a range error occurs at construction or at draw.
      */
-    public function random(): int;
+    public function draw(): int;
 }

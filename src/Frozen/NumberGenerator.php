@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace HolisticAgency\Decouple\Frozen;
 
-use HolisticAgency\Decouple\RandomizerInterface;
+use HolisticAgency\Decouple\NumberGeneratorInterface;
 
-class Randomizer implements RandomizerInterface
+class NumberGenerator implements NumberGeneratorInterface
 {
     /** @var int[] */
     private array $numbers;
@@ -29,7 +29,7 @@ class Randomizer implements RandomizerInterface
         $this->reset = $this->numbers;
     }
 
-    public function random(): int
+    public function draw(): int
     {
         if (empty($this->numbers)) {
             $this->numbers = $this->reset;

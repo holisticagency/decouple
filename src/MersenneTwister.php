@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace HolisticAgency\Decouple;
 
-class Randomizer implements RandomizerInterface
+class MersenneTwister implements NumberGeneratorInterface
 {
     public function __construct(
         public readonly int $min = 0,
@@ -24,10 +24,10 @@ class Randomizer implements RandomizerInterface
     /**
      * {@inheritDoc}
      */
-    public function random(): int
+    public function draw(): int
     {
         if ($this->min > $this->max) {
-            throw new \RangeException('max value is not greater than or equal to min value');
+            throw new RangeException('max value is not greater than or equal to min value');
         }
 
         return \mt_rand($this->min, $this->max);

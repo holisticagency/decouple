@@ -11,20 +11,21 @@
 
 namespace HolisticAgency\Test\Decouple;
 
-use HolisticAgency\Decouple\Randomizer;
+use HolisticAgency\Decouple\MersenneTwister;
+use HolisticAgency\Decouple\RangeException;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-#[CoversClass(Randomizer::class)]
-class RandomizerTest extends TestCase
+#[CoversClass(MersenneTwister::class)]
+class MersenneTwisterTest extends TestCase
 {
-    public function testRandom()
+    public function testDraw()
     {
         // Given
-        $randomizer = new Randomizer(1, 6);
+        $generator = new MersenneTwister(1, 6);
 
         // When
-        $actual = $randomizer->random();
+        $actual = $generator->draw();
 
         // Then
         $this->assertGreaterThanOrEqual(1, $actual);
@@ -34,11 +35,11 @@ class RandomizerTest extends TestCase
     public function testRangeException()
     {
         // Given
-        $this->expectException(\RangeException::class);
+        $this->expectException(RangeException::class);
         $this->expectExceptionMessage('max value is not greater than or equal to min value');
 
         // When
-        (new Randomizer(2, 1))->random();
+        (new MersenneTwister(2, 1))->draw();
 
         // Then
         // An exception is thrown

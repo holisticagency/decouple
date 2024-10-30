@@ -11,20 +11,20 @@
 
 namespace HolisticAgency\Test\Decouple\Frozen;
 
-use HolisticAgency\Decouple\Frozen\Randomizer;
+use HolisticAgency\Decouple\Frozen\NumberGenerator;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-#[CoversClass(Randomizer::class)]
-class RandomizerTest extends TestCase
+#[CoversClass(NumberGenerator::class)]
+class NumberGeneratorTest extends TestCase
 {
-    public function testRandom()
+    public function testDraw()
     {
         // Given
-        $randomizer = new Randomizer(1);
+        $generator = new NumberGenerator(1);
 
         // When
-        $actual = $randomizer->random();
+        $actual = $generator->draw();
 
         // Then
         $this->assertEquals(1, $actual); // :-D
@@ -33,10 +33,10 @@ class RandomizerTest extends TestCase
     public function testMultipleRandom()
     {
         // Given
-        $randomizer = new Randomizer(1, 2);
+        $generator = new NumberGenerator(1, 2);
 
         // When
-        $actual = [$randomizer->random(), $randomizer->random(), $randomizer->random()];
+        $actual = [$generator->draw(), $generator->draw(), $generator->draw()];
 
         // Then
         $this->assertEquals([1, 2, 1], $actual);
