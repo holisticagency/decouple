@@ -8,6 +8,8 @@
         "system",
         "platform",
         "network",
+        "pseudo-random",
+        "number-generator",
         "decoupling",
         "interfaces"
     ],
