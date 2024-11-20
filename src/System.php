@@ -29,4 +29,9 @@ class System implements SystemInterface
     {
         return \getmypid() ?: 0;
     }
+
+    public function umask(?int $mask = \null): int
+    {
+        return \umask($mask);
+    }
 }

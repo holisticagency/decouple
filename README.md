@@ -8,7 +8,7 @@ fake or render unpredictable return values of some PHP native functions dealing 
 ## Installation
 
 ```bash
-composer require holistic-agency/decouple:dev-main
+composer require holistic-agency/decouple:^1.0
 ```
 
 ## Usage
@@ -99,6 +99,7 @@ $cheater = $guesser->draw(); // 10
 | freeSpace($directory) | disk_free_space($directory)                      |
 | documentRoot()        | $_SERVER['DOCUMENT_ROOT'] or empty string (`''`) |
 | pid()                 | getmypid()                                       |
+| umask()               | umask()                                          |
 
 ### PlatformInterface
 

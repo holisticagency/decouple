@@ -53,4 +53,19 @@ class SystemTest extends TestCase
         // Then
         $this->assertEquals(\getmypid(), $actual);
     }
+
+    public function testUmask()
+    {
+        // Given
+        $system = new System();
+        $currentUmask = \umask();
+
+        // When
+        $previous = $system->umask(0);
+        $actual = $system->umask($currentUmask);
+
+        // Then
+        $this->assertEquals($currentUmask, $previous);
+        $this->assertEquals(0, $actual);
+    }
 }

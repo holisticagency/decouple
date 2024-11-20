@@ -21,23 +21,25 @@ class System implements SystemInterface
         protected float $freeSpace,
         protected string $documentRoot,
         protected int $pid,
+        protected int $umask,
     ) {
     }
 
     /**
-     * @param array{documentRoot?:string,freeSpace?:float,pid?:int} $frozenParameters
+     * @param array{documentRoot?:string,freeSpace?:float,pid?:int,umask?:int} $frozenParameters
      * @param SystemInterface|null $system
      *
      * @return self
      */
     public static function createFromArray(
         array $frozenParameters = [],
-        ?SystemInterface $system = null,
+        ?SystemInterface $system = \null,
     ): self {
         return new self(
             $frozenParameters['freeSpace'] ?? $system?->freeSpace($system->documentRoot()) ?? 0,
             $frozenParameters['documentRoot'] ?? $system?->documentRoot() ?? '',
             $frozenParameters['pid'] ?? $system?->pid() ?? 0,
+            $frozenParameters['umask'] ?? $system?->umask() ?? 0022,
         );
     }
 
@@ -54,5 +56,10 @@ class System implements SystemInterface
     public function pid(): int
     {
         return $this->pid;
+    }
+
+    public function umask(?int $mask = \null): int
+    {
+        return $this->umask;
     }
 }

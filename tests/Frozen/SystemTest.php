@@ -25,7 +25,8 @@ class SystemTest extends TestCase
         $this->system = new System(
             7,
             __DIR__,
-            1234
+            1234,
+            0
         );
     }
 
@@ -39,6 +40,7 @@ class SystemTest extends TestCase
             'freeSpace' => 7,
             'documentRoot' => __DIR__,
             'pid' => 1234,
+            'umask' => 0,
         ]);
 
         // Then
@@ -79,5 +81,17 @@ class SystemTest extends TestCase
 
         // Then
         $this->assertEquals(1234, $actual);
+    }
+
+    public function testUmask()
+    {
+        // Given
+        // $this->system
+
+        // When
+        $actual = $this->system->umask();
+
+        // Then
+        $this->assertEquals(0, $actual);
     }
 }

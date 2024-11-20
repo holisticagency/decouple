@@ -20,4 +20,6 @@ interface SystemInterface
     public function documentRoot(): string;
 
     public function pid(): int;
+
+    public function umask(?int $mask = null): int;
 }
