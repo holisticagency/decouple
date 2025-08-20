@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of holisticagency/decouple.
+ * This file is part of holistic-agency/decouple.
  *
  * (c) JamesRezo <james@rezo.net>
  *
@@ -25,8 +25,7 @@ class Network implements NetworkInterface
         protected string $ipV4,
         protected string $httpHost,
         protected array $remotes,
-    ) {
-    }
+    ) {}
 
     /**
      * @param array{hostname?:string,ipV4?:string,httpHost?:string,remotes?:array<string,string>} $frozenParameters

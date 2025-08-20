@@ -1,7 +1,7 @@
 <?php
 
 $header = <<<HEADER
-This file is part of holisticagency/decouple.
+This file is part of holistic-agency/decouple.
 
 (c) JamesRezo <james@rezo.net>
 
@@ -15,7 +15,7 @@ $finder = PhpCsFixer\Finder::create()
 
 $config = new PhpCsFixer\Config();
 return $config->setRules([
-        '@PSR12' => true,
+        '@PER-CS3.0:risky' => true,
         'strict_param' => true,
         'array_syntax' => ['syntax' => 'short'],
         'header_comment' => ['header' => $header],

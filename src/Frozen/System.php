@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of holisticagency/decouple.
+ * This file is part of holistic-agency/decouple.
  *
  * (c) JamesRezo <james@rezo.net>
  *
@@ -22,8 +22,7 @@ class System implements SystemInterface
         protected string $documentRoot,
         protected int $pid,
         protected int $umask,
-    ) {
-    }
+    ) {}
 
     /**
      * @param array{documentRoot?:string,freeSpace?:float,pid?:int,umask?:int} $frozenParameters

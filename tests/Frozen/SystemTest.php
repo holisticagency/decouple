@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of holisticagency/decouple.
+ * This file is part of holistic-agency/decouple.
  *
  * (c) JamesRezo <james@rezo.net>
  *
@@ -26,7 +26,7 @@ class SystemTest extends TestCase
             7,
             __DIR__,
             1234,
-            0
+            0,
         );
     }
 

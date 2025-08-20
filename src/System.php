@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of holisticagency/decouple.
+ * This file is part of holistic-agency/decouple.
  *
  * (c) JamesRezo <james@rezo.net>
  *
@@ -22,7 +22,7 @@ class System implements SystemInterface
 
     public function documentRoot(): string
     {
-        return $_SERVER['DOCUMENT_ROOT'] ?? '';
+        return \is_string($_SERVER['DOCUMENT_ROOT']) ? $_SERVER['DOCUMENT_ROOT'] : '';
     }
 
     public function pid(): int

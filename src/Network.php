@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of holisticagency/decouple.
+ * This file is part of holistic-agency/decouple.
  *
  * (c) JamesRezo <james@rezo.net>
  *
@@ -32,7 +32,7 @@ class Network implements NetworkInterface
 
     public function httpHost(): string
     {
-        return $_SERVER['HTTP_HOST'] ?? '';
+        return \is_string($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
     }
 
     public function remotes(): array

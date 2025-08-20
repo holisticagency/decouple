@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of holisticagency/decouple.
+ * This file is part of holistic-agency/decouple.
  *
  * (c) JamesRezo <james@rezo.net>
  *
@@ -18,8 +18,7 @@ class MersenneTwister implements NumberGeneratorInterface
     public function __construct(
         public readonly int $min = 0,
         public readonly int $max = \PHP_INT_MAX,
-    ) {
-    }
+    ) {}
 
     /**
      * {@inheritDoc}

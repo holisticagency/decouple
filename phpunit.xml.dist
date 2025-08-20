@@ -5,12 +5,6 @@
       <directory>tests</directory>
     </testsuite>
   </testsuites>
-  <coverage>
-    <report>
-      <html outputDirectory=".phpunit.cache/html"/>
-      <text outputFile="php://stdout"/>
-    </report>
-  </coverage>
   <php>
     <server name="HTTP_HOST" value="frozen.tld"/>
     <server name="DOCUMENT_ROOT" value="/var/www/html"/>

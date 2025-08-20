@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of holisticagency/decouple.
+ * This file is part of holistic-agency/decouple.
  *
  * (c) JamesRezo <james@rezo.net>
  *
@@ -11,6 +11,4 @@
 
 namespace HolisticAgency\Decouple;
 
-class RangeException extends \RangeException
-{
-}
+class RangeException extends \RangeException {}

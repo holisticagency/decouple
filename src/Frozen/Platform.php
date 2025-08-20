@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of holisticagency/decouple.
+ * This file is part of holistic-agency/decouple.
  *
  * (c) JamesRezo <james@rezo.net>
  *
@@ -25,8 +25,7 @@ class Platform implements PlatformInterface
         protected string $version,
         protected array $extensions,
         protected string $memory,
-    ) {
-    }
+    ) {}
 
     /**
      * @param array{sapi?:string,version?:string,memory?:string,extensions?:string[]} $frozenParameters

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of holisticagency/decouple.
+ * This file is part of holistic-agency/decouple.
  *
  * (c) JamesRezo <james@rezo.net>
  *
@@ -105,7 +105,7 @@ class FrozenNetworkTest extends TestCase
         return [
             'unresolved' => [
                 '',
-                'www.'.md5(\mt_rand()).'.'.substr(md5(\mt_rand()), 0, 3),
+                'www.' . md5(\mt_rand()) . '.' . substr(md5(\mt_rand()), 0, 3),
             ],
             'resolved' => [
                 '1.2.3.4',

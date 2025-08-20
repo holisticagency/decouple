@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of holisticagency/decouple.
+ * This file is part of holistic-agency/decouple.
  *
  * (c) JamesRezo <james@rezo.net>
  *
@@ -17,9 +17,7 @@ use Psr\Clock\ClockInterface;
 
 class Clock implements ClockInterface
 {
-    public function __construct(protected \DateTimeImmutable $now)
-    {
-    }
+    public function __construct(protected \DateTimeImmutable $now) {}
 
     public function now(): \DateTimeImmutable
     {
