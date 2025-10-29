@@ -19,16 +19,18 @@ class Network implements NetworkInterface
 {
     /**
      * @param array<string,string> $remotes
+     * @param array<string,array{ttl:int}> $dnsRecords
      */
     public function __construct(
         protected string $hostname,
         protected string $ipV4,
         protected string $httpHost,
         protected array $remotes,
+        protected array $dnsRecords,
     ) {}
 
     /**
-     * @param array{hostname?:string,ipV4?:string,httpHost?:string,remotes?:array<string,string>} $frozenParameters
+     * @param array{hostname?:string,ipV4?:string,httpHost?:string,remotes?:array<string,string>,dnsRecords?:array<string,array{ttl:int}>} $frozenParameters
      * @param NetworkInterface|null $network
      *
      * @return self
@@ -42,6 +44,7 @@ class Network implements NetworkInterface
             $frozenParameters['ipV4'] ?? $network?->ipV4() ?? '',
             $frozenParameters['httpHost'] ?? $network?->httpHost() ?? '',
             $frozenParameters['remotes'] ?? $network?->remotes() ?? [],
+            $frozenParameters['dnsRecords'] ?? [],
         );
     }
 
@@ -68,5 +71,15 @@ class Network implements NetworkInterface
     public function resolve(string $remote): string
     {
         return \array_key_exists($remote, $this->remotes) ? $this->remotes[$remote] : '';
+    }
+
+    public function dnsGetRecord(
+        string $hostname,
+        int $type = \DNS_ANY,
+        ?array &$authoritative_name_servers = null,
+        ?array &$additional_records = null,
+        bool $raw = false
+    ): array|false {
+        return \array_key_exists($hostname, $this->dnsRecords) ? $this->dnsRecords[$hostname] : false;
     }
 }

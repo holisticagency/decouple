@@ -30,6 +30,9 @@ class FrozenNetworkTest extends TestCase
             [
                 'frozen.tld' => '1.2.3.4',
             ],
+            [
+                'frozen.tld' => [['host' => 'frozen.tld', 'ttl' => 20, 'ip' => '1.2.3.4', 'class' => 'IN', 'type' => 'A']],
+            ],
         );
     }
 
@@ -46,6 +49,9 @@ class FrozenNetworkTest extends TestCase
             'remotes' => [
                 'frozen.tld' => '1.2.3.4',
             ],
+            'dnsRecords' => [
+                'frozen.tld' => [['host' => 'frozen.tld', 'ttl' => 20, 'ip' => '1.2.3.4', 'class' => 'IN', 'type' => 'A']],
+            ]
         ]);
 
         // Then
@@ -125,5 +131,33 @@ class FrozenNetworkTest extends TestCase
 
         // Then
         $this->assertEquals($expected, $actual);
+    }
+
+    public static function dataDnsGetRecord()
+    {
+        return [
+            'does-not-exist' => [
+                'expected' => false,
+                'host' => 'unknown.tld',
+            ],
+            'exists' => [
+                'expected' => [['host' => 'frozen.tld', 'ttl' => 20, 'ip' => '1.2.3.4', 'class' => 'IN', 'type' => 'A']],
+                'host' => 'frozen.tld',
+            ],
+        ];
+    }
+
+    #[DataProvider('dataDnsGetRecord')]
+    public function testDnsGetRecord($expected, $host)
+    {
+        // Given
+        // $this->network
+
+        // When
+        $actual = $this->network->dnsGetRecord($host);
+
+        // Then
+        $this->assertEquals($expected, $actual);
+
     }
 }

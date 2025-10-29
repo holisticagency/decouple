@@ -93,4 +93,21 @@ class NetworkTest extends TestCase
         // Then
         $this->assertEquals($expected, $actual);
     }
+
+    public function testDnsGetRecord()
+    {
+        // Given
+        $network = new Network();
+        $expectedIp = $network->resolve('github.com');
+
+        // When
+        $record = $network->dnsGetRecord('github.com');
+        $host = $record[0]['host'];
+        $actualIp = $record[0]['ip'];
+
+        // Then
+        $this->assertEquals('github.com', $host);
+        $this->assertIsInt($record[0]['ttl']);
+        $this->assertEquals($expectedIp, $actualIp);
+    }
 }

@@ -49,4 +49,14 @@ class Network implements NetworkInterface
 
         return $this->remotes[$remote];
     }
+
+    public function dnsGetRecord(
+        string $hostname,
+        int $type = \DNS_ANY,
+        ?array &$authoritative_name_servers = null,
+        ?array &$additional_records = null,
+        bool $raw = false
+    ): array|false {
+        return \dns_get_record($hostname, $type, $authoritative_name_servers, $additional_records, $raw);
+    }
 }
