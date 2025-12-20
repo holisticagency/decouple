@@ -118,6 +118,7 @@ $cheater = $guesser->draw(); // 10
 | ipV4()                | gethostbyname()                                |
 | httpHost()            | $_SERVER['HTTP_HOST'] or empty string          |
 | resolve($remote)      | gethostbyname($remote) or empty string         |
+| dnsGetRecord(...).    | dns_get_record(...)                            |
 
 ## Example
 
